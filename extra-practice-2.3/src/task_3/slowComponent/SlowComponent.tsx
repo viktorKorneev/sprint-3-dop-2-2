@@ -1,11 +1,14 @@
-export const SlowComponent = () => {
+
+import { memo } from 'react';
+
+export const SlowComponent = memo(() => {
   console.log('SlowComponent повторный рендеринг...');
 
-  let now = performance.now();
+  const now = performance.now();
 
   while (performance.now() - now < 1000) {
-    // Искусственная задержка - ничего не делает в течение 100 мс
+    // Искусственная задержка
   }
 
   return <p>Я очень медленное дерево компонентов.</p>;
-};
+});
